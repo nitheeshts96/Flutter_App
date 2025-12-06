@@ -1,4 +1,4 @@
-# bmi calculator
+# Food Waste Management App Model
 
 A new Flutter project created with FlutLab - https://flutlab.io
 
