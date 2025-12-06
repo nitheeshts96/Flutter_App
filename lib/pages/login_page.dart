@@ -33,66 +33,76 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text('Login'),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          // For scrollability on smaller screens
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    // Add more email validation if needed
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    // Add more password validation if needed
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    // Navigate to the SecondScreen when the button is pressed
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const App(),
-                      ),
-                    );
-                  },
-                  child: const Text('Login'),
-                ),
-              ],
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: BackButton(
+            onPressed: () {
+              print('Back button pressed!');
+              Navigator.pop(context);
+            },
           ),
         ),
-      ),
-    );
+        body: Center(
+          child: Container(
+              color: Color(0xffffffff),
+              child: SingleChildScrollView(
+                child: Container(
+                  color: Color(0xffffffff),
+                  // For scrollability on smaller screens
+                  padding: const EdgeInsets.all(16.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TextFormField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            // Add more email validation if needed
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            // Add more password validation if needed
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 30),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Navigate to the SecondScreen when the button is pressed
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const App(),
+                              ),
+                            );
+                          },
+                          child: const Text('Login'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )),
+        ));
   }
 }
