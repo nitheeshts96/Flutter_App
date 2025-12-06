@@ -1,4 +1,5 @@
 // lib/main.dart
+import 'package:bmi_calculator/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import './pages/bottom_navbar.dart'; // Adjust the import path
 import './pages/about_page.dart';
